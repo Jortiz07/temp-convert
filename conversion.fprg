@@ -4,19 +4,33 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="jkot9"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2020-01-14 02:31:48 PM"/>
+        <attribute name="saved" value="2020-01-14 03:37:53 PM"/>
         <attribute name="created" value="amtvdDk7TVNJOzIwMjAtMDEtMTQ7MDE6MDU6MTcgUE07MTk5OA=="/>
-        <attribute name="edited" value="amtvdDk7TVNJOzIwMjAtMDEtMTQ7MDI6MzE6NDggUE07MzsyMTEy"/>
+        <attribute name="edited" value="amtvdDk7TVNJOzIwMjAtMDEtMTQ7MDM6Mzc6NTMgUE07NDsyMTE2"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <output expression="&quot;Please enter a temperature in degrees Celsius.&quot;" newline="True"/>
-            <declare name="degreesCelsius" type="Real" array="False" size=""/>
-            <input variable="degreesCelsius"/>
-            <output expression="&quot;The temperature is &quot;" newline="False"/>
-            <output expression="convertC2F(degreesCelsius)" newline="False"/>
-            <output expression="&quot; in degrees Fahrenheit.&quot;" newline="False"/>
+            <declare name="repeat" type="Boolean" array="False" size=""/>
+            <assign variable="repeat" expression="true"/>
+            <while expression="repeat">
+                <output expression="&quot;Please enter a temperature in degrees Celsius.(Press &lt;Enter&gt; to quit.)&quot;" newline="True"/>
+                <declare name="userInput" type="String" array="False" size=""/>
+                <declare name="degreesCelsius" type="Real" array="False" size=""/>
+                <input variable="userInput"/>
+                <if expression="Len(userInput) &gt; 0">
+                    <then>
+                        <assign variable="degreesCelsius" expression="ToReal(userInput)"/>
+                        <output expression="&quot;The temperature is &quot;" newline="False"/>
+                        <output expression="convertC2F(degreesCelsius)" newline="False"/>
+                        <output expression="&quot; in degrees Fahrenheit.&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <assign variable="repeat" expression="false"/>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;Goodbye...&quot;" newline="True"/>
         </body>
     </function>
     <function name="convertC2F" type="Real" variable="degreesFahrenheit">
