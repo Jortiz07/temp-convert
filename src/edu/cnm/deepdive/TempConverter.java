@@ -1,7 +1,6 @@
 package edu.cnm.deepdive;
 
 import java.util.*;
-import java.lang.Math;
 
 public class TempConverter {
 
@@ -23,7 +22,7 @@ public class TempConverter {
                 repeat = false;
             }
         }
-        System.out.println("Goodbye...");
+        System.out.println("Bye-Bye...");
     }
     
     public static double convertC2F(double degreesCelsius) {
